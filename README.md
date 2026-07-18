@@ -1,3 +1,5 @@
+<img width="1923" height="1328" alt="mscore_dashboard" src="https://github.com/user-attachments/assets/efdd0608-6179-45ac-836d-652d4f559b2e" />
+![Dashboard](mscore_dashboard.png)
 # Financial Statement Fraud Detector — Beneish M-Score Engine
 
 **Forensic accounting screen for earnings manipulation using live SEC EDGAR data.**

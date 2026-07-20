@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/src/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Beneish M-Score — Forensic Earnings-Manipulation Screener</title>
+    <meta name="description" content="Interactive forensic-accounting terminal. Detect potential earnings manipulation and accounting irregularities using the 8-ratio Beneish M-Score model, featuring pre-loaded case files and live Alpha Vantage data feeds." />
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="theme-color" content="#12160f" />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js')
+            .then(reg => console.log('ServiceWorker registered:', reg))
+            .catch(err => console.log('ServiceWorker registration failed:', err));
+        });
+      }
+    </script>
+  </body>
+</html>

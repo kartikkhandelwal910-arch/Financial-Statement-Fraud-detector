@@ -1,0 +1,298 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap');
+
+:root {
+  --ink: #12160f;
+  --ink-2: #181d16;
+  --paper: #ece4d1;
+  --paper-hi: #f6f1e3;
+  --redink: #a3382c;
+  --redink-bright: #c24a3a;
+  --green: #7fae7f;
+  --green-dark: #3d6b45;
+  --brass: #a3822f;
+  --brass-hi: #c9a54a;
+  --slate: #8d9284;
+  --rule: rgba(236, 228, 209, 0.12);
+  --shadow-sm: 0 4px 12px rgba(0,0,0,0.3);
+  --shadow-md: 0 12px 24px -10px rgba(0,0,0,0.5);
+  --shadow-lg: 0 30px 60px -20px rgba(0,0,0,0.6);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--ink);
+  color: var(--paper);
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 15px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Background grid overlay */
+.bg-grid {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(var(--rule) 1px, transparent 1px),
+    linear-gradient(90deg, var(--rule) 1px, transparent 1px);
+  background-size: 48px 48px;
+  opacity: 0.25;
+  mask-image: radial-gradient(ellipse 70% 70% at 50% 10%, black 30%, transparent 95%);
+}
+
+.app-container {
+  position: relative;
+  z-index: 1;
+  max-width: 1180px; /* Constrained for a compact, professional desktop layout */
+  margin: 0 auto;
+  padding: 20px 20px 60px 20px;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5 {
+  font-family: 'Source Serif 4', serif;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--paper-hi);
+}
+
+.mono {
+  font-family: 'IBM Plex Mono', monospace;
+}
+
+/* Eyebrow Label */
+.eyebrow {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--brass-hi);
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.eyebrow::before {
+  content: "";
+  display: inline-block;
+  width: 16px;
+  height: 1px;
+  background-color: var(--brass-hi);
+}
+
+/* Verdict Stamp Badges */
+.mscore-stamp {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12px;
+  letter-spacing: 0.05em;
+  padding: 8px 14px;
+  border-radius: 3px;
+  border: 1px solid;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.mscore-stamp.flagged {
+  color: #e8836f;
+  border-color: var(--redink);
+  background: rgba(163, 56, 44, 0.12);
+}
+
+.mscore-stamp.clean {
+  color: #8fc48f;
+  border-color: var(--green-dark);
+  background: rgba(61, 107, 69, 0.12);
+}
+
+.mscore-stamp .star {
+  color: var(--brass-hi);
+  animation: pulse 2s infinite;
+}
+
+/* CSS Forms and Inputs */
+input[type="text"], select, textarea {
+  width: 100%;
+  background: var(--ink);
+  border: 1px solid rgba(236, 228, 209, 0.2);
+  border-radius: 3px;
+  padding: 10px 14px;
+  font-size: 13.5px;
+  color: var(--paper-hi);
+  font-family: 'IBM Plex Mono', monospace;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+input[type="text"]:focus, select:focus {
+  border-color: var(--brass-hi);
+  box-shadow: 0 0 0 2px rgba(201, 165, 74, 0.15);
+}
+
+/* Premium Card Panels */
+.card-panel {
+  background: var(--ink-2);
+  border: 1px solid var(--rule);
+  border-radius: 3px;
+  padding: 24px;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-panel:hover {
+  border-color: rgba(236, 228, 209, 0.25);
+  box-shadow: var(--shadow-md);
+}
+
+/* Ledger Tables */
+.ledger-table-container {
+  overflow-x: auto;
+  border: 1px solid var(--rule);
+  border-radius: 3px;
+}
+
+.ledger-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 13.5px;
+}
+
+.ledger-table th {
+  background-color: rgba(236, 228, 209, 0.04);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--slate);
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--rule);
+  font-weight: 500;
+}
+
+.ledger-table td {
+  padding: 12px 16px;
+  border-bottom: 1px dashed rgba(236, 228, 209, 0.08);
+  color: var(--paper);
+}
+
+.ledger-table tr:hover td {
+  background-color: rgba(236, 228, 209, 0.02);
+}
+
+.ledger-table tr.highlighted td {
+  background-color: rgba(201, 165, 74, 0.04);
+  border-bottom: 1px solid rgba(201, 165, 74, 0.15);
+}
+
+/* Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--ink);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(236, 228, 209, 0.15);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(236, 228, 209, 0.3);
+}
+
+/* Animation Keyframes */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes stampPop {
+  0% {
+    opacity: 0;
+    transform: scale(1.6) rotate(-8deg);
+  }
+  60% {
+    opacity: 1;
+    transform: scale(0.95) rotate(1deg);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+@keyframes shine {
+  from { background-position: -200% center; }
+  to { background-position: 200% center; }
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Animation Classes */
+.animate-fade-up {
+  animation: fadeUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-stamp-pop {
+  animation: stampPop 0.5s cubic-bezier(0.2, 1.4, 0.4, 1) forwards;
+}
+
+/* Responsive grid layouts */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: 300px 1fr; /* Tighter sidebar width */
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.main-content-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.charts-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Balanced card sizes */
+  gap: 20px;
+}
+
+@media (max-width: 1100px) {
+  .charts-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 900px) {
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+  .app-container {
+    padding: 16px;
+  }
+}

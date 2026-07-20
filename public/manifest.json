@@ -1,0 +1,17 @@
+{
+  "short_name": "MScore Terminal",
+  "name": "Beneish M-Score Forensic Terminal",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "type": "image/svg+xml",
+      "sizes": "any",
+      "purpose": "any maskable"
+    }
+  ],
+  "start_url": "/",
+  "background_color": "#12160f",
+  "theme_color": "#12160f",
+  "display": "standalone",
+  "orientation": "portrait"
+}

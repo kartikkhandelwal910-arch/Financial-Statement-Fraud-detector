@@ -1,0 +1,30 @@
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[[redirects]]
+  from = "/api/sec-www/*"
+  to = "https://www.sec.gov/:splat"
+  status = 200
+  force = true
+  headers = { User-Agent = "BeneishTerminal/1.0 (contact@beneish-screener.com)" }
+
+[[redirects]]
+  from = "/api/sec-data/*"
+  to = "https://data.sec.gov/:splat"
+  status = 200
+  force = true
+  headers = { User-Agent = "BeneishTerminal/1.0 (contact@beneish-screener.com)" }
+
+[[redirects]]
+  from = "/api/yahoo/*"
+  to = "https://query2.finance.yahoo.com/:splat"
+  status = 200
+  force = true
+  headers = { User-Agent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36" }
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
